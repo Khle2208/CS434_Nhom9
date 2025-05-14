@@ -1,0 +1,47 @@
+@charset "UTF-8";
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+  }
+  
+  .cart_item {
+    width: 100%; 
+    min-width: 200px; /* Điều chỉnh phù hợp */
+    max-width: 250px; /* Giới hạn để tránh vỡ layout */
+}
+  
+  
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  label {
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+
+  .search_register:focus-within{
+    border: #86b7fe solid 2px;
+    outline: 0;
+    box-shadow:  0 0 0 .25rem rgba(13, 110, 253, .25);;
+  }
+
+  .cart_button{
+    min-width: 35px;
+    min-height: 35px;
+    
+  }
+  
+
+
+ 
