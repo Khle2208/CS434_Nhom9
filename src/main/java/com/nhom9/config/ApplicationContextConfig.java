@@ -25,7 +25,10 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
+
 @ComponentScan(basePackages = "com.nhom9")
+
+@ComponentScan(basePackages = "fa.mockproject")
 @PropertySource(value = { "classpath:db.properties" })
 public class ApplicationContextConfig {
 
