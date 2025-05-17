@@ -8,11 +8,13 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/template/login.css ">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/template/base.css">
-<title>BookZone</title>
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+		rel="stylesheet">
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/style/login.css ">
+		<link rel="stylesheet"
+			href="${pageContext.request.contextPath}/style/base.css">
 <style>
 .error-box {
 	display: none;
