@@ -29,6 +29,8 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = "com.nhom9")
 
 @ComponentScan(basePackages = "fa.mockproject")
+
+@ComponentScan(basePackages = "com.nhom9")
 @PropertySource(value = { "classpath:db.properties" })
 public class ApplicationContextConfig {
 

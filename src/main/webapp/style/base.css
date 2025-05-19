@@ -1,0 +1,11 @@
+@charset "UTF-8";
+* {
+    box-sizing: inherit; /* kế thừa từ thẻ chứa nó , box-sizing : bao gồm các margin, padding trong phần tử*/
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6 rem;
+    box-sizing: border-box;
+    font-family: cursive;
+}

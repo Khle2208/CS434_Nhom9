@@ -1,6 +1,7 @@
 package com.nhom9.service;
 
 import java.util.ArrayList;
+
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -8,17 +9,32 @@ import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
+
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import fa.mockproject.dao.UserDAO;
 import fa.mockproject.model.User;
+
+import com.nhom9.dao.UserDAO;
+import com.nhom9.model.User;
+
+
+
 
 @Service
 public class UserService implements ServiceInterface<User>{
 
 	@Autowired
+
 	UserDAO userdao;
 	@Autowired
 	private EmailService emailservicel;
@@ -26,26 +42,45 @@ public class UserService implements ServiceInterface<User>{
 	@Override
 	public int insert(User t) {
 		return userdao.insert(t);
+
+	UserDAO userDao;
+
+	@Override
+	public int insert(User t) {
+		return userDao.insert(t);
 	}
 
 	@Override
 	public int update(User t) {
+
 		return userdao.update(t);
+
+		return userDao.update(t);
+
 	}
 
 	@Override
 	public int delete(User t) {
+
 		return userdao.delete(t);
+
+		return userDao.delete(t);
+
 		
 	}
 
 	@Override
 	public ArrayList<User> findAll() {
+
 		return userdao.findAll();
+
+		return userDao.findAll();
+
 	}
 
 	@Override
 	public User findById(User t) {
+
 		return userdao.findById(t);
 	}
 	
@@ -78,17 +113,41 @@ public class UserService implements ServiceInterface<User>{
 
 		public boolean isValidOTP(String email, String enterotp,HttpSession session) {
 			String storedOTP = userdao.getOTPByEmail(email, session);
+
+		return userDao.findById(t);
+	}
+	
+	public int setStatusUser(User t) {
+		return userDao.setStatusUser(t);
+	}
+	
+	public ArrayList<User> findByName(String name){
+		return userDao.findByName(name);
+	}
+
+
+		public boolean isValidOTP(String email, String enterotp,HttpSession session) {
+			String storedOTP = userDao.getOTPByEmail(email, session);
+
 			return storedOTP != null && storedOTP.equals(enterotp);
 	
 		}
 
 	public void Register(String username, String password, String email,String otp) {
+
 		userdao.Register(username, password, email,otp);
+
+		userDao.Register(username, password, email,otp);
+
 
 	}
 
 	public String Login(String email, String password) {
+<<<<<<< HEAD
 	    User user = userdao.login(email, password); // Chỉ lấy user theo email
+=======
+	    User user = userDao.login(email, password); // Chỉ lấy user theo email
+>>>>>>> origin/AnhVu
 
 	    if (user == null) {
 	        return "Email hoặc mật khẩu không chính xác!";
@@ -112,6 +171,7 @@ public class UserService implements ServiceInterface<User>{
 	    System.out.println("Đăng nhập thành công!");
 	    return "success";
 	}
+<<<<<<< HEAD
 	public UserService(UserDAO userdao) {
 		this.userdao = userdao;
 	}
@@ -142,49 +202,19 @@ public class UserService implements ServiceInterface<User>{
 	}
 	
 
-//	public void registerUser(String email) {
-//		String otp = emailservicel.getOtp();
-//		userdao.addUser(email, otp);
-//		emailservicel.sendOtpEmail(email, otp);
-//	}
-//	
-//	public void registerUserWithEmailExist(String email) {
-//		String otp = userdao.getOTPByEmail(email);
-//		emailservicel.sendOtpEmail(email, otp);
-//	}
-//	
-//	
-//	public boolean isValidOTP(String email, String enterotp) {
-//		String storedOTP = userdao.getOTPByEmail(email);
-//		return storedOTP != null && storedOTP.equals(enterotp);
-//
-//	}
-//
-//	public void Register(String username, String password, String email) {
-//		userdao.Register(username, password, email);
-//		;
-//	}
-//
-//	public void Login(String email, String password) {
-//		userdao.Login(email, password);
-//	}
-//
-//	public UserService(UserDAO userdao) {
-//		this.userdao = userdao;
-//	}
-//
-//	public Integer getTotalUserService(Date startDateU, Date endDateU) {
-//		return userdao.getTotalUserDAO(startDateU, endDateU);
-//	}
-//
-//	public String getIdService(String email) {
-//		return userdao.getID(email);
-//	}
-//	public void logOutService(String email, String passWord) {
-//		this.userdao.forgotPasswordDAO(email, passWord);
-//	}
 
 	public int updateUserById(UUID id_user, String name, String phone, String email, String sex) {
 		return userdao.updateUserById(id_user, name, phone, email, sex);
 	}
+
+
+	public UserService(UserDAO userdao) {
+		this.userDao = userdao;
+	}
+
+
+	public String getIdService(String email) {
+		return userDao.getID(email);
+	}
+
 }

@@ -8,15 +8,27 @@ import javax.servlet.http.HttpSession;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import fa.mockproject.model.User;
+
+import com.nhom9.model.User;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+
+
+
 import java.util.Date;
 import java.util.List;
 
@@ -97,7 +109,7 @@ public class UserDAO implements DAOInterface<User> {
 		return new ArrayList<>();
 
 	}
-	
+
 	@Override
 	public User findById(User t) {
 		try {
@@ -129,6 +141,7 @@ public class UserDAO implements DAOInterface<User> {
 		}
 		return null;
 	}
+
 	
 	public User findByUserId(UUID userId) {
 		try {
@@ -159,6 +172,19 @@ public class UserDAO implements DAOInterface<User> {
 
 	}
 	
+
+	public int setStatusUser(User t) {
+		try {
+			String sql = "UPDATE [User] " + "SET status = ?" + " WHERE userId = ?";
+
+			return jdbcTemplate.update(sql, t.getStatus(), t.getUserId());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+
 	public ArrayList<User> findByName(String name) {
 		try {
 			String sql = "SELECT * FROM [User] WHERE username LIKE ?";
@@ -187,7 +213,7 @@ public class UserDAO implements DAOInterface<User> {
 		return new ArrayList<>();
 
 	}
-	
+
 	
 	public int setStatusUser(User t) {
 		try {
@@ -200,14 +226,13 @@ public class UserDAO implements DAOInterface<User> {
 		}
 	}
 	
-	// binh Creator
-	
+
 	public boolean exitMail(String email) {
 		String sql = "SELECT COUNT(*) FROM [User] WHERE email=?";
 		int count = jdbcTemplate.queryForObject(sql, new Object[] { email }, Integer.class);
 		return count > 0;
 	}
-	
+
 	public boolean addUser(String email) {
 		if (exitMail(email)) {
 			return false;
@@ -234,7 +259,7 @@ public class UserDAO implements DAOInterface<User> {
 		jdbcTemplate.update(sql, username, hashedPassword, email, otp, "R02");
 
 	}
-	
+
 	public User login(String email, String password) { // Không cần truyền mật khẩu ở đây
 		String sql = "SELECT * FROM [User] WHERE email=?";
 		try {
@@ -266,16 +291,15 @@ public class UserDAO implements DAOInterface<User> {
 			if (!BCrypt.checkpw(password, user.getPassword())) {
 				System.err.println("Mat khau sai");
 			}
-			// In mật khẩu để kiểm tra
 			System.out.println("Mật khẩu trong DB: " + user.getPassword());
 
-			return user; // Chỉ trả về user, không kiểm tra mật khẩu ở đây
+			return user;
 		} catch (EmptyResultDataAccessException e) {
 			System.out.println("Không tìm thấy user với email: " + email);
 			return null;
 		}
 	}
-	
+
 	public Integer getTotalUserDAO(Date startDateU, Date endDateU) {
 		String sql = "SELECT COUNT(email) FROM [User] WHERE  created_at BETWEEN ? AND ?";
 		try {
@@ -287,13 +311,12 @@ public class UserDAO implements DAOInterface<User> {
 		}
 
 	}
-	
-	
+
 	public String getID(String email) {
 		String sql = "SELECT userId FROM [User] WHERE email=?";
 		return jdbcTemplate.queryForObject(sql, new Object[] { email }, String.class);
 	}
-	
+
 	public boolean forgotPasswordDAO(String email, String passWord) {
 		String sql = "UPDATE [User] SET password= ? WHERE email=?";
 
@@ -320,7 +343,7 @@ public class UserDAO implements DAOInterface<User> {
 					rs.getInt("locked_users"), rs.getInt("user_count") };
 		});
 	}
-	// cuong creator
+
 	public int updateUserById(UUID id_user, String name, String phone, String email, String sex) {
 		try {
 			String sql = "UPDATE [User] " + "SET email = ?, name = ?, phone = ?, "
@@ -365,7 +388,6 @@ public class UserDAO implements DAOInterface<User> {
 			return null;
 		}
 	}
-	
 	
 
 }
