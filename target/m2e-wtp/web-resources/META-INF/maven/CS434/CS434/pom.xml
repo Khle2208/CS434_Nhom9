@@ -1,20 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-<<<<<<< HEAD
-  <groupId>CS434B</groupId>
-  <artifactId>CS434B</artifactId>
-=======
   <groupId>CS434</groupId>
   <artifactId>CS434</artifactId>
->>>>>>> origin/DinhSang
   <version>1.0</version>
   <packaging>war</packaging>
   <name>CS434B</name>
   
-<<<<<<< HEAD
-=======
    
->>>>>>> origin/DinhSang
   <properties>
 		<spring.version>4.3.25.RELEASE</spring.version>
 		<servlet.version>3.1.0</servlet.version>

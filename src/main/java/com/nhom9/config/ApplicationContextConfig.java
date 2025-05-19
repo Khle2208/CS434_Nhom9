@@ -27,10 +27,6 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 
 @ComponentScan(basePackages = "com.nhom9")
-
-@ComponentScan(basePackages = "fa.mockproject")
-
-@ComponentScan(basePackages = "com.nhom9")
 @PropertySource(value = { "classpath:db.properties" })
 public class ApplicationContextConfig {
 
@@ -57,14 +53,14 @@ public class ApplicationContextConfig {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("tranhungbinh17052003@gmail.com"); //email real
-        mailSender.setPassword("lusx ducl pope wnia"); //password app password
+        mailSender.setUsername("khoale22082004@@gmail.com");
+        mailSender.setPassword("lusx ducl pope wnia");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.debug", "true"); // Chế độ debug
+        props.put("mail.debug", "true");
 
         return mailSender;
     }

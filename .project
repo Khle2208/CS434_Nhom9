@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>CS434B</name>
+=======
+	<name>CS434</name>
+>>>>>>> origin/DinhSang
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,12 +20,20 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.eclipse.wst.validation.validationbuilder</name>
+=======
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+>>>>>>> origin/DinhSang
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.eclipse.m2e.core.maven2Builder</name>
+=======
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+>>>>>>> origin/DinhSang
 			<arguments>
 			</arguments>
 		</buildCommand>

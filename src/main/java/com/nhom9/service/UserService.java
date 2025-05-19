@@ -2,12 +2,14 @@ package com.nhom9.service;
 
 import java.util.ArrayList;
 
+
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
 import java.util.Date;
 import java.util.List;
+
 
 
 import java.util.Date;
@@ -21,8 +23,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+
 import fa.mockproject.dao.UserDAO;
 import fa.mockproject.model.User;
+
 
 import com.nhom9.dao.UserDAO;
 import com.nhom9.model.User;
@@ -35,6 +39,7 @@ public class UserService implements ServiceInterface<User>{
 
 	@Autowired
 
+
 	UserDAO userdao;
 	@Autowired
 	private EmailService emailservicel;
@@ -45,6 +50,11 @@ public class UserService implements ServiceInterface<User>{
 
 	UserDAO userDao;
 
+
+	UserDAO userDao;
+	@Autowired
+	private EmailService emailservicel;
+
 	@Override
 	public int insert(User t) {
 		return userDao.insert(t);
@@ -53,7 +63,11 @@ public class UserService implements ServiceInterface<User>{
 	@Override
 	public int update(User t) {
 
+
 		return userdao.update(t);
+
+		return userDao.update(t);
+
 
 		return userDao.update(t);
 
@@ -62,17 +76,25 @@ public class UserService implements ServiceInterface<User>{
 	@Override
 	public int delete(User t) {
 
+
 		return userdao.delete(t);
 
 		return userDao.delete(t);
 
 		
+
+		return userDao.delete(t);
+
 	}
 
 	@Override
 	public ArrayList<User> findAll() {
 
+
 		return userdao.findAll();
+
+		return userDao.findAll();
+
 
 		return userDao.findAll();
 
@@ -80,6 +102,7 @@ public class UserService implements ServiceInterface<User>{
 
 	@Override
 	public User findById(User t) {
+
 
 		return userdao.findById(t);
 	}
@@ -114,6 +137,7 @@ public class UserService implements ServiceInterface<User>{
 		public boolean isValidOTP(String email, String enterotp,HttpSession session) {
 			String storedOTP = userdao.getOTPByEmail(email, session);
 
+
 		return userDao.findById(t);
 	}
 	
@@ -124,6 +148,18 @@ public class UserService implements ServiceInterface<User>{
 	public ArrayList<User> findByName(String name){
 		return userDao.findByName(name);
 	}
+
+
+
+		public boolean isValidOTP(String email, String enterotp,HttpSession session) {
+			String storedOTP = userDao.getOTPByEmail(email, session);
+
+
+
+	public boolean exitMailService(String email) {
+		return userDao.exitMail(email);
+	}
+
 
 
 		public boolean isValidOTP(String email, String enterotp,HttpSession session) {
@@ -143,11 +179,11 @@ public class UserService implements ServiceInterface<User>{
 	}
 
 	public String Login(String email, String password) {
-<<<<<<< HEAD
+
 	    User user = userdao.login(email, password); // Chỉ lấy user theo email
-=======
+
 	    User user = userDao.login(email, password); // Chỉ lấy user theo email
->>>>>>> origin/AnhVu
+
 
 	    if (user == null) {
 	        return "Email hoặc mật khẩu không chính xác!";
@@ -171,7 +207,7 @@ public class UserService implements ServiceInterface<User>{
 	    System.out.println("Đăng nhập thành công!");
 	    return "success";
 	}
-<<<<<<< HEAD
+
 	public UserService(UserDAO userdao) {
 		this.userdao = userdao;
 	}
@@ -212,9 +248,22 @@ public class UserService implements ServiceInterface<User>{
 		this.userDao = userdao;
 	}
 
+		userDao.Register(username, password, email,otp);
+
+	}
+
+	
+
+
 
 	public String getIdService(String email) {
 		return userDao.getID(email);
 	}
 
+
+	public boolean forgotPasswordService(String email, String newPassword) {
+	    return userDao.forgotPasswordDAO(email, newPassword);
+	}
+	
+	
 }
