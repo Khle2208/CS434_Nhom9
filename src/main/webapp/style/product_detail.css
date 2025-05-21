@@ -1,0 +1,84 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+  font-family: sans-serif;
+}
+.container {
+  padding-bottom: 50px;
+   margin-top: 20px;
+}
+
+.bordered-image:hover {
+  transform: translateY(-10px);
+}
+.related-products,img  {
+  max-width: 375px;
+}
+.related-products:hover {
+  transform:translateY(-10px);
+}
+.off-price h3  {
+  font-size: 10;
+}
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+.cart_button{
+  max-width: 35px;
+  max-height: 35px;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d00; /* Màu đỏ cho giá */
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quantity button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid goldenrod;
+  background-color: goldenrod;
+  cursor: pointer;
+}
+.quantity input{
+  width: 40px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #e2a012;
+  border-color: #dda815;
+}
+
+.btn-secondary {
+  background-color: #f09713;
+  border-color: #da8415;
+}
+
+.promotions .badge {
+  margin-right: 5px;
+}
+
+.related-products img {
+  margin-bottom: 10px;
+  max-width: 100px; 
+}
+
+
+.star-rating {
+  color: gold;
+}
+
+

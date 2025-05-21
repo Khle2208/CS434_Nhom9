@@ -16,12 +16,22 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.mail.javamail.JavaMailSender;
+
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+
+
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+
+@Configuration
+@EnableWebMvc
+
+
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @Configuration
 @EnableWebMvc
@@ -47,6 +57,7 @@ public class ApplicationContextConfig {
 		viewResolver.setContentType("text/html; charset=UTF-8");
 		return viewResolver;
 	}
+
 	
 	@Bean
 	public JavaMailSender getJavaMailSender() {
@@ -64,6 +75,9 @@ public class ApplicationContextConfig {
 
         return mailSender;
     }
+
+
+
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource bundleMessageSource = new ReloadableResourceBundleMessageSource();
@@ -94,6 +108,25 @@ public class ApplicationContextConfig {
 		return multipartResolver;
 	}
 	
+
+
+	@Bean
+	public JavaMailSender getJavaMailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost("smtp.gmail.com");
+        mailSender.setPort(587);
+        mailSender.setUsername("tranhungbinh17052003@gmail.com"); //email real
+        mailSender.setPassword("lusx ducl pope wnia"); //password app password
+
+        Properties props = mailSender.getJavaMailProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.debug", "true"); // Chế độ debug
+
+        return mailSender;
+    }
+
 	
 
 }

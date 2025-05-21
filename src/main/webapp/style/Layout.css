@@ -1,7 +1,10 @@
 @charset "UTF-8";
 .header {
+<<<<<<< HEAD
 	position: fixed;
 	z-index: 1010;
+=======
+>>>>>>> origin/NguyenLe
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -200,4 +203,7 @@ footer {
   width: 100%;
   margin-bottom: 20px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/NguyenLe
