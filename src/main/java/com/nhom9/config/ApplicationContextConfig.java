@@ -1,4 +1,4 @@
-package com.nhom9.config;
+                                                                                                                                      package com.nhom9.config;
 
 import java.util.Properties;
 
@@ -31,7 +31,6 @@ public class ApplicationContextConfig {
 
 	@Autowired
 	Environment env;
-
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer configurer() {
 		return new PropertySourcesPlaceholderConfigurer();
