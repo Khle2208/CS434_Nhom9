@@ -1,0 +1,9 @@
+@charset "UTF-8";
+ .etc {
+    display: -webkit-box; 
+    -webkit-line-clamp: 1; /* Chỉ hiển thị 1 dòng */
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%;
+}

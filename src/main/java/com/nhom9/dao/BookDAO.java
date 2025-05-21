@@ -267,7 +267,11 @@
 //    }
 //}
 
+
 package com.nhom9.dao;
+
+package fa.mockproject.dao;
+
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -96,7 +96,11 @@
  * 
  * }
  */
+
 package com.nhom9.model;
+
+package fa.mockproject.model;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
